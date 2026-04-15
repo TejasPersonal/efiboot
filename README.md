@@ -104,6 +104,21 @@ for path in file_paths:
 
 ---
 
+> **Tip:** To get the partition path from a `partuuid`:
+> ```python
+> import os
+> path = os.path.realpath("/dev/disk/by-partuuid/" + loader.partuuid, strict=True)  # e.g. /dev/sda1
+> ```
+> To get a `partuuid` from a partition path:
+> ```python
+> import subprocess
+> partuuid = subprocess.run(
+>   ["lsblk", "-no", "PARTUUID", partition_path], 
+>   check=True, 
+>   capture_output=True, 
+>   text=True).stdout[:-1]
+> ```
+
 ## Managing Boot Entries
 
 ### Create a boot entry
