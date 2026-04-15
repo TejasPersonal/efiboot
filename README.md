@@ -16,8 +16,8 @@ file_paths = efiboot.get_boot_entry_file_paths()
 for path in file_paths:
     entry = efiboot.BootEntry(path)
     print(entry.index, entry.description, "active:", entry.is_active)
+    # entry.description is also known as label or name
 ```
-entry.description is also known as label or name
 
 ### Get a specific entry by index
 
