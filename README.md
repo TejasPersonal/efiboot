@@ -1,4 +1,4 @@
-# efiboot
+# EFI Boot
 
 A Python library for reading and managing UEFI boot entries on Linux systems.
 
@@ -6,11 +6,29 @@ Reads EFI variables directly from /sys/firmware/efi/efivars/, exposing the full 
 
 > **Note:** Most operations require root privileges.
 
+## Installation
+
+```bash
+pip install efiboot
+```
+
+Or inside a virtual environment:
+
+```bash
+python -m venv env
+source env/bin/activate
+pip install efiboot
+```
+
+# Usage
+
 ## Reading Boot Entries
 
 ### List all boot entries with details
 
 ```python
+import efiboot
+
 file_paths = efiboot.get_boot_entry_file_paths()
 
 for path in file_paths:
