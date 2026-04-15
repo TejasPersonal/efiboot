@@ -15,6 +15,9 @@ def get_boot_entry_file_paths() -> list[str]:
 
 
 def get_boot_entry_file_path_from_index(index: str) -> str:
+    """
+    index: hex string
+    """
     file_name = f"Boot{index}-8be4df61-93ca-11d2-aa0d-00e098032b8c"
 
     boot_entry_path = EFIVARS_PATH + file_name
@@ -45,7 +48,8 @@ def get_boot_timeout() -> int:
 def get_next_boot_index() -> str:
     """
     Stays even if entry was deleted but system wasn't restarted,
-    next boot will essentially be the first entry of boot order
+    if deleted next boot will essentially be the first entry of
+    the boot order.
     """
     boot_next_file_path = EFIVARS_PATH + "BootNext-8be4df61-93ca-11d2-aa0d-00e098032b8c"
 
@@ -71,6 +75,12 @@ def get_current_boot_index() -> str:
 
 
 def get_boot_order() -> list[str]:
+    """
+    returns a list of hex strings containing indexes of boot entries
+    in order,
+    the first one boots automatically after restarts if next boot
+    index isn't set
+    """
     boot_order_file_path = (
         EFIVARS_PATH + "BootOrder-8be4df61-93ca-11d2-aa0d-00e098032b8c"
     )
