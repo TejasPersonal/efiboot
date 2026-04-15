@@ -11,8 +11,8 @@ class LoaderLocationNode:
 
 class TailFileGptDrivePart:
     """
-    this is the structure where last location information
-    node is file followed by GPT drive partition
+    this is a structure where last location information
+    node is "file" followed by "GPT drive partition"
     """
 
     def __init__(self, lln: list[LoaderLocationNode]):

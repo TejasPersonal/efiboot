@@ -22,8 +22,8 @@ def set_next_boot(index: str):
     process.run("efibootmgr", "--quiet", "--bootnext", index)
 
 
-def delete_next_boot(index: str):
-    process.run("efibootmgr", "--quiet", "--delete-bootnext", index)
+def delete_next_boot():
+    process.run("efibootmgr", "--quiet", "--delete-bootnext")
 
 
 def delete_boot_entry(index: str):
